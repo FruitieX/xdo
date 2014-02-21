@@ -56,7 +56,8 @@ void window_activate(xcb_window_t win);
 void window_id(xcb_window_t win);
 void window_pid(xcb_window_t win);
 void fake_input(xcb_window_t win, uint8_t evt, uint8_t code);
-void key_press_release(xcb_window_t win);
+void key_release(xcb_window_t win);
+void key_press(xcb_window_t win);
 void button_press_release(xcb_window_t win);
 
 #endif
