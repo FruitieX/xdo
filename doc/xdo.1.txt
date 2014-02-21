@@ -58,8 +58,11 @@ Actions
 *pid*::
   Print the window's pid.
 
-*key*::
-  Simulate a key press/release event.
+*keypress*::
+  Simulate a key press event.
+
+*keyrelease*::
+  Simulate a key release event.
 
 *button*::
   Simulate a button press/release event.
