@@ -39,6 +39,8 @@ int main(int argc, char *argv[])
         action = window_raise;
     else if (strcmp(argv[1], "lower") == 0)
         action = window_lower;
+	else if (strcmp(argv[1], "key") == 0)
+		action = key;
     else if (strcmp(argv[1], "keypress") == 0)
         action = key_press;
 	else if (strcmp(argv[1], "keyrelease") == 0)
@@ -364,9 +366,15 @@ void fake_input(xcb_window_t win, uint8_t evt, uint8_t code)
     xcb_test_fake_input(dpy, evt, code, XCB_CURRENT_TIME, win, 0, 0, 0);
 }
 
-void key_press(xcb_window_t win)
+void key(xcb_window_t win)
 {
     fake_input(win, XCB_KEY_PRESS, cfg.evt_code);
+	fake_input(win, XCB_KEY_RELEASE, cfg.evt_code);
+}
+
+void key_press(xcb_window_t win)
+{
+	fake_input(win, XCB_KEY_PRESS, cfg.evt_code);
 }
 
 void key_release(xcb_window_t win)
